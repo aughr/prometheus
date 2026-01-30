@@ -383,7 +383,9 @@ func (p *NHCBParser) processNHCB() bool {
 		}
 
 		p.bytesNHCB = []byte(p.metricStringNHCB)
-		p.lsetNHCB = p.tempLsetNHCB
+		p.lsetNHCB = labels.NewBuilder(p.tempLsetNHCB).
+			Set(labels.ClassicHistogramConvertedToNHCBLabel, "true").
+			Labels()
 		p.swapExemplars()
 		p.stNHCB = p.tempST
 		p.state = stateEmitting

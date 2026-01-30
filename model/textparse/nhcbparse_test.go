@@ -188,7 +188,7 @@ foobar{quantile="0.99"} 150.1`
 				PositiveBuckets: []int64{1},
 				// Custom values are empty as we do not store the +Inf boundary.
 			},
-			lset: labels.FromStrings("__name__", "hh"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "hh"),
 		}, {
 			m:   "gh",
 			typ: model.MetricTypeGaugeHistogram,
@@ -209,7 +209,7 @@ foobar{quantile="0.99"} 150.1`
 				PositiveBuckets: []int64{1},
 				// Custom values are empty as we do not store the +Inf boundary.
 			},
-			lset: labels.FromStrings("__name__", "hhh"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "hhh"),
 			es: []exemplar.Exemplar{
 				{Labels: labels.FromStrings("id", "histogram-bucket-test"), Value: 4},
 				{Labels: labels.FromStrings("id", "histogram-count-test"), Value: 4},
@@ -339,7 +339,7 @@ foobar{quantile="0.99"} 150.1`
 				PositiveBuckets: []int64{17},
 				CustomValues:    []float64{0.0}, // We do not store the +Inf boundary.
 			},
-			lset: labels.FromStrings("__name__", "baz"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "baz"),
 			st:   1520872609125,
 		}, {
 			m:    "fizz_created",
@@ -367,7 +367,7 @@ foobar{quantile="0.99"} 150.1`
 				PositiveBuckets: []int64{1, 16},
 				CustomValues:    []float64{0.0}, // We do not store the +Inf boundary.
 			},
-			lset: labels.FromStrings("__name__", "something"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "something"),
 			st:   1520430001000,
 		}, {
 			m: `something{a="b"}`,
@@ -379,7 +379,7 @@ foobar{quantile="0.99"} 150.1`
 				PositiveBuckets: []int64{8, -7},
 				CustomValues:    []float64{0.0}, // We do not store the +Inf boundary.
 			},
-			lset: labels.FromStrings("__name__", "something", "a", "b"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "something", "a", "b"),
 			st:   1520430002000,
 		}, {
 			m:    "yum",
@@ -485,7 +485,7 @@ something_bucket{a="b",le="+Inf"} 9 # {id="something-test"} 2e100 123.000
 				PositiveBuckets: []int64{1, 14, -13},
 				CustomValues:    []float64{0.0, 1.0}, // We do not store the +Inf boundary.
 			},
-			lset: labels.FromStrings("__name__", "something"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "something"),
 			es: []exemplar.Exemplar{
 				{Labels: labels.FromStrings("id", "something-test"), Value: -2.0},
 				{Labels: labels.FromStrings("id", "something-test"), Value: 0.5},
@@ -501,7 +501,7 @@ something_bucket{a="b",le="+Inf"} 9 # {id="something-test"} 2e100 123.000
 				PositiveBuckets: []int64{8, -8, 1},
 				CustomValues:    []float64{0.0, 1.0}, // We do not store the +Inf boundary.
 			},
-			lset: labels.FromStrings("__name__", "something", "a", "b"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "something", "a", "b"),
 			es: []exemplar.Exemplar{
 				{Labels: labels.FromStrings("id", "something-test"), Value: 0.0, HasTs: true, Ts: 123321},
 				{Labels: labels.FromStrings("id", "something-test"), Value: 2e100, HasTs: true, Ts: 123000},
@@ -743,7 +743,7 @@ func TestNHCBParser_NoNHCBWhenExponential(t *testing.T) {
 									PositiveBuckets: []int64{2, 0, 10, 147},
 									CustomValues:    []float64{-0.0004899999999999998, -0.0003899999999999998, -0.0002899999999999998},
 								},
-								lset: labels.FromStrings("__name__", metric),
+								lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", metric),
 								t:    int64p(1234568),
 								st:   st,
 							},
@@ -951,7 +951,7 @@ something_bucket{a="b",le="+Inf"} 9
 				PositiveBuckets: []int64{1, 7},
 				CustomValues:    []float64{0.0}, // We do not store the +Inf boundary.
 			},
-			lset: labels.FromStrings("__name__", "something", "a", "b"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "something", "a", "b"),
 			st:   1520430002000,
 		},
 	}
@@ -1081,7 +1081,7 @@ metric: <
 				PositiveBuckets: []int64{2, 0, 10, 147},
 				CustomValues:    []float64{-0.0004899999999999998, -0.0003899999999999998, -0.0002899999999999998},
 			},
-			lset: labels.FromStrings("__name__", "test_histogram2"),
+			lset: labels.FromStrings("__classic_histogram_converted_to_nhcb__", "true", "__name__", "test_histogram2"),
 			t:    int64p(1234568),
 			st:   1000,
 		},

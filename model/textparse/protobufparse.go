@@ -80,6 +80,8 @@ type ProtobufParser struct {
 	// We need to preload NHCB since we cannot do error handling in Histogram().
 	nhcbH  *histogram.Histogram
 	nhcbFH *histogram.FloatHistogram
+	// Whether the current entry is an NHCB-converted histogram.
+	isNHCBConverted bool
 }
 
 // NewProtobufParser returns a parser for the payload in the byte slice.
@@ -426,6 +428,7 @@ func (p *ProtobufParser) Next() (Entry, error) {
 	p.exemplarReturned = false
 	p.nhcbH = nil
 	p.nhcbFH = nil
+	p.isNHCBConverted = false
 	switch p.state {
 	// Invalid state occurs on:
 	// * First Next() call.
@@ -536,6 +539,7 @@ func (p *ProtobufParser) Next() (Entry, error) {
 						return EntryInvalid, err
 					}
 					p.state = EntryHistogram
+					p.isNHCBConverted = true
 					// We have an NHCB to emit, no need to decode the next series.
 					decodeNext = false
 				}
@@ -641,6 +645,14 @@ func (p *ProtobufParser) onSeriesOrHistogramUpdate() error {
 		p.entryBytes.WriteByte(model.SeparatorByte)
 		p.entryBytes.WriteString(l.Value)
 	})
+
+	// Add synthetic label for NHCB-converted histograms after building
+	// entryBytes, so it doesn't affect the metric cache key.
+	if p.isNHCBConverted {
+		p.lset = labels.NewBuilder(p.lset).
+			Set(labels.ClassicHistogramConvertedToNHCBLabel, "true").
+			Labels()
+	}
 	return nil
 }
 

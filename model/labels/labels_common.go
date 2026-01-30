@@ -34,6 +34,12 @@ const (
 	AlertName   = "alertname"
 	BucketLabel = "le"
 
+	// ClassicHistogramConvertedToNHCBLabel is a synthetic label added to
+	// histograms that were auto-converted from classic to native histograms
+	// with custom buckets (NHCB). It is available during metric relabeling
+	// but stripped before storage.
+	ClassicHistogramConvertedToNHCBLabel = "__classic_histogram_converted_to_nhcb__"
+
 	labelSep = '\xfe' // Used at beginning of `Bytes` return.
 	sep      = '\xff' // Used between labels in `Bytes` and `Hash`.
 )

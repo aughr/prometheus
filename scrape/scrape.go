@@ -1781,6 +1781,12 @@ loop:
 			// and relabeling and store the final label set.
 			lset = sl.sampleMutator(lset)
 
+			// Strip synthetic NHCB conversion label after metric relabeling,
+			// so it is available for relabel rules but not stored.
+			if sl.convertClassicHistToNHCB && lset.Has(labels.ClassicHistogramConvertedToNHCBLabel) {
+				lset = labels.NewBuilder(lset).Del(labels.ClassicHistogramConvertedToNHCBLabel).Labels()
+			}
+
 			// The label set may be set to empty to indicate dropping.
 			if lset.IsEmpty() {
 				sl.cache.addDropped(met)

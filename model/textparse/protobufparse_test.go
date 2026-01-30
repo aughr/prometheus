@@ -4318,6 +4318,7 @@ metric: <
 						CustomValues:    []float64{-0.00048, -0.00038, 1},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram1",
 					),
 					es: []exemplar.Exemplar{
@@ -4352,6 +4353,7 @@ metric: <
 						CustomValues:    []float64{-20, 20, 30},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram2_seconds",
 					),
 					es: []exemplar.Exemplar{
@@ -4382,6 +4384,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"foo", "bar",
 					),
@@ -4401,6 +4404,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"foo", "baz",
 					),
@@ -4506,6 +4510,7 @@ metric: <
 						CustomValues:    []float64{-0.00048, -0.00038, 1},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram1",
 					),
 					es: []exemplar.Exemplar{
@@ -4592,6 +4597,7 @@ metric: <
 						CustomValues:    []float64{-20, 20, 30},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram2_seconds",
 					),
 					es: []exemplar.Exemplar{
@@ -4665,6 +4671,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"foo", "bar",
 					),
@@ -4727,6 +4734,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"foo", "baz",
 					),
@@ -4780,6 +4788,7 @@ metric: <
 						CustomValues:    []float64{-0.00048, -0.00038, 1},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram1",
 					),
 					es: []exemplar.Exemplar{
@@ -4814,6 +4823,7 @@ metric: <
 						CustomValues:    []float64{-20, 20, 30},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram2_seconds",
 					),
 					es: []exemplar.Exemplar{
@@ -4844,6 +4854,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"foo", "bar",
 					),
@@ -4863,6 +4874,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"foo", "baz",
 					),
@@ -4885,6 +4897,7 @@ metric: <
 						CustomValues:     []float64{},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "empty_histogram",
 					),
 				},
@@ -4970,6 +4983,7 @@ metric: <
 						CustomValues:    []float64{-0.00048, -0.00038, 1},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram1",
 					),
 					es: []exemplar.Exemplar{
@@ -5056,6 +5070,7 @@ metric: <
 						CustomValues:    []float64{-20, 20, 30},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram2_seconds",
 					),
 					es: []exemplar.Exemplar{
@@ -5129,6 +5144,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"foo", "bar",
 					),
@@ -5191,6 +5207,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"foo", "baz",
 					),
@@ -5231,6 +5248,7 @@ metric: <
 						NegativeSpans:    []histogram.Span{},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "empty_histogram",
 					),
 				},
@@ -5264,6 +5282,7 @@ metric: <
 						CustomValues:    []float64{-0.00048, -0.00038, 1},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram1",
 						"__type__", "histogram",
 					),
@@ -5299,6 +5318,7 @@ metric: <
 						CustomValues:    []float64{-20, 20, 30},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram2_seconds",
 						"__type__", "histogram",
 						"__unit__", "seconds",
@@ -5331,6 +5351,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"__type__", "histogram",
 						"foo", "bar",
@@ -5351,6 +5372,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"__type__", "histogram",
 						"foo", "baz",
@@ -5464,6 +5486,7 @@ metric: <
 						CustomValues:    []float64{-0.00048, -0.00038, 1},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram1",
 						"__type__", "histogram",
 					),
@@ -5563,6 +5586,7 @@ metric: <
 						CustomValues:    []float64{-20, 20, 30},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram2_seconds",
 						"__type__", "histogram",
 						"__unit__", "seconds",
@@ -5643,6 +5667,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"__type__", "histogram",
 						"foo", "bar",
@@ -5711,6 +5736,7 @@ metric: <
 						CustomValues:    []float64{1.1, 2.2},
 					},
 					lset: labels.FromStrings(
+						"__classic_histogram_converted_to_nhcb__", "true",
 						"__name__", "test_histogram_family",
 						"__type__", "histogram",
 						"foo", "baz",
