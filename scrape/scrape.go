@@ -1775,10 +1775,8 @@ loop:
 			hash = ce.hash
 		} else {
 			p.Labels(&lset)
-			hash = lset.Hash()
 
-			// Hash label set as it is seen local to the target. Then add target labels
-			// and relabeling and store the final label set.
+			// Add target labels and relabeling and store the final label set.
 			lset = sl.sampleMutator(lset)
 
 			// Strip synthetic NHCB conversion label after metric relabeling,
@@ -1786,6 +1784,8 @@ loop:
 			if sl.convertClassicHistToNHCB && lset.Has(labels.ClassicHistogramConvertedToNHCBLabel) {
 				lset = labels.NewBuilder(lset).Del(labels.ClassicHistogramConvertedToNHCBLabel).Labels()
 			}
+
+			hash = lset.Hash()
 
 			// The label set may be set to empty to indicate dropping.
 			if lset.IsEmpty() {
